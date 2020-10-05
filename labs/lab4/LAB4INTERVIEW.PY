@@ -1,27 +1,16 @@
 from sense_hat import SenseHat
+from random import randint
+import time
 
 sense = SenseHat()
 
-sense.show_letter("B")
-int i=0
-index = 1
-
-
-
-####
-# Main game loop
-####
+sense.clear()
 
 while True:
-  selection = False
-  events = sense.stick.get_events()
-  for event in events:
-    
-    # Skip releases
-    if event.action != "released":
-        index+=1
-        i++
-        if index %2 == 0 & i % 2 == 0:
-            sense.show_letter("T")
-        else:
-            sense.show_letter("A")
+    x = randint(0,7)
+    y = randint(0,7)
+    sense.set_pixel(7, 7, 255, 255, 255)
+    sense.set_pixel(0, 0, 255, 255, 255)
+    sense.set_pixel(7, 0, 255, 255, 255)
+    sense.set_pixel(0, 7, 255, 255, 255)
+    time.sleep(0.05)
