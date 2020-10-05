@@ -18,7 +18,14 @@ for sensor in sensorList:
     cursor.execute(sql)
     dbconnect.commit()
 
-sql = "select * from sensors where sensors.zone LIKE 'garage'"
+sql = "select * from sensors where sensors.zone LIKE 'kitchen'"
+#The * means all, 10 would means the top ten. Like means string '='
+
+cursor.execute(sql)
+
+sql = "select * from sensors where sensors.zone LIKE 'kitchen'"
+
+#if you type kit% then all strings starting in kit will show up
 
 cursor.execute(sql)
 
